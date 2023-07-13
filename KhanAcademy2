@@ -1,0 +1,42 @@
+For this assignment, I created a table of songs available to sing at a karaoke club.
+I then had to query songs that my friends wanted to sing. First, they wanted to know the 
+songs that were either classified as an 'epic' mood, OR a song that cam out after 1990.
+Later, they wanted to know the songs that were classified as an 'epic' mood, came out after 1990
+AND had a duration of less than 4 minutes, or 240 seconds.
+
+CREATE TABLE songs (
+    id INTEGER PRIMARY KEY,
+    title TEXT,
+    artist TEXT,
+    mood TEXT,
+    duration INTEGER,
+    released INTEGER);
+    
+INSERT INTO songs (title, artist, mood, duration, released)
+    VALUES ("Bohemian Rhapsody", "Queen", "epic", 60, 1975);
+INSERT INTO songs (title, artist, mood, duration, released)
+    VALUES ("Let it go", "Idina Menzel", "epic", 227, 2013);
+INSERT INTO songs (title, artist, mood, duration, released)
+    VALUES ("I will survive", "Gloria Gaynor", "epic", 198, 1978);
+INSERT INTO songs (title, artist, mood, duration, released)
+    VALUES ("Twist and Shout", "The Beatles", "happy", 152, 1963);
+INSERT INTO songs (title, artist, mood, duration, released)
+    VALUES ("La Bamba", "Ritchie Valens", "happy", 166, 1958);
+INSERT INTO songs (title, artist, mood, duration, released)
+    VALUES ("I will always love you", "Whitney Houston", "epic", 273, 1992);
+INSERT INTO songs (title, artist, mood, duration, released)
+    VALUES ("Sweet Caroline", "Neil Diamond", "happy", 201, 1969);
+INSERT INTO songs (title, artist, mood, duration, released)
+    VALUES ("Call me maybe", "Carly Rae Jepsen", "happy", 193, 2011);
+
+SELECT title FROM songs;
+
+SELECT title FROM songs 
+WHERE mood = 'epic'
+OR released > '1990';
+
+SELECT title FROM songs 
+WHERE mood = 'epic'
+AND released > '1990'
+AND duration < 240;
+
